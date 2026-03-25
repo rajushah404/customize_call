@@ -32,6 +32,8 @@ dependencies:
     sdk: flutter
   shared_preferences: ^2.5.2
   permission_handler: ^11.3.1
+  flutter_bloc: ^9.1.0
+  equatable: ^2.0.7
   # Removed flutter_contacts for simplicity, using native API for contacts
 
 dev_dependencies:
