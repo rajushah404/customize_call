@@ -9,6 +9,7 @@ class LocalDataSource {
   CallSettings getSettings() {
     return CallSettings(
       blockEnabled: _prefs.getBool('blockEnabled') ?? false,
+      blockAll: _prefs.getBool('blockAll') ?? false,
       whitelistMode: _prefs.getBool('whitelistMode') ?? false,
       focusMode: _prefs.getBool('focusMode') ?? false,
       maxCalls: _prefs.getInt('maxCalls') ?? 3,

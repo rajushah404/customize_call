@@ -6,10 +6,12 @@ class CallSettings extends Equatable {
   final bool focusMode;
   final int maxCalls;
   final int timeWindow;
+  final bool blockAll;
   final bool isDefaultApp;
 
   const CallSettings({
     required this.blockEnabled,
+    required this.blockAll,
     required this.whitelistMode,
     required this.focusMode,
     required this.maxCalls,
@@ -19,6 +21,7 @@ class CallSettings extends Equatable {
 
   CallSettings copyWith({
     bool? blockEnabled,
+    bool? blockAll,
     bool? whitelistMode,
     bool? focusMode,
     int? maxCalls,
@@ -27,6 +30,7 @@ class CallSettings extends Equatable {
   }) {
     return CallSettings(
       blockEnabled: blockEnabled ?? this.blockEnabled,
+      blockAll: blockAll ?? this.blockAll,
       whitelistMode: whitelistMode ?? this.whitelistMode,
       focusMode: focusMode ?? this.focusMode,
       maxCalls: maxCalls ?? this.maxCalls,
@@ -38,6 +42,7 @@ class CallSettings extends Equatable {
   @override
   List<Object?> get props => [
         blockEnabled,
+        blockAll,
         whitelistMode,
         focusMode,
         maxCalls,

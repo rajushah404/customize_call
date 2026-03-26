@@ -13,11 +13,12 @@ class NativeDataSource {
     }
   }
 
-  Future<void> requestDefaultApp() async {
+  Future<bool> requestDefaultApp() async {
     try {
-      await _channel.invokeMethod('requestDefaultApp');
+      final bool status = await _channel.invokeMethod('requestDefaultApp');
+      return status;
     } on PlatformException catch (_) {
-      // Handle error
+      return false;
     }
   }
 

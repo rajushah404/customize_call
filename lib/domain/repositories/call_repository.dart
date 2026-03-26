@@ -4,7 +4,7 @@ abstract class CallRepository {
   Future<CallSettings> getSettings();
   Future<void> saveSetting(String key, dynamic value);
   Future<bool> isDefaultApp();
-  Future<void> requestDefaultApp();
+  Future<bool> requestDefaultApp();
   Future<List<BlockedLog>> getBlockedLogs();
   Future<void> requestPermissions();
 }

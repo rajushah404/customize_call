@@ -34,7 +34,7 @@ class CallRepositoryImpl implements CallRepository {
   Future<bool> isDefaultApp() => nativeDataSource.isDefaultApp();
 
   @override
-  Future<void> requestDefaultApp() => nativeDataSource.requestDefaultApp();
+  Future<bool> requestDefaultApp() => nativeDataSource.requestDefaultApp();
 
   @override
   Future<List<BlockedLog>> getBlockedLogs() async {

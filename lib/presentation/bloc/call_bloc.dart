@@ -37,9 +37,14 @@ class CallBloc extends Bloc<CallEvent, CallState> {
   }
 
   Future<void> _onRequestDefaultApp(RequestDefaultAppAction event, Emitter<CallState> emit) async {
-    await repository.requestDefaultApp();
-    await Future.delayed(const Duration(seconds: 2));
-    add(RefreshStatusAction());
+    final bool isDefault = await repository.requestDefaultApp();
+    if (state is CallLoaded) {
+      final currentState = state as CallLoaded;
+      final settings = currentState.settings.copyWith(isDefaultApp: isDefault);
+      emit(CallLoaded(settings, currentState.logs));
+    } else {
+      add(RefreshStatusAction());
+    }
   }
 
   Future<void> _onRefreshStatus(RefreshStatusAction event, Emitter<CallState> emit) async {
